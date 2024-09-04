@@ -43,14 +43,14 @@ Integrate these tools within NIH/NIAID/IRF organizational infrastructure.
 
 To use our custom version of nnU-Net, follow these steps:
 
-1. **Clone the Repository**:
+1. **Clone the Repository** (with `--recurse-submodules` flag to include our private IRF submodule):
 
    ```bash
-   git clone git@github.com:mark-rustad/dmist-nnunet-fork.git
+   git clone --recurse-submodules git@github.com:mark-rustad/dmist-nnunet-fork.git
    cd nnUNet
    ```
 
-2. **Create a conda environment (using conda/mamba/micromamba) using the environment specification file `nnunet_env_v1.yml`**:
+2. **Create a conda environment** (using conda/mamba/micromamba) using the environment specification file `nnunet_env_v1.yml`:
 
    ```bash
    micromamba create -n <env_name> -f ./nnunet_env_v1.yml
