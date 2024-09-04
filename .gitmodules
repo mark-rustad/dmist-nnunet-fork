@@ -1,0 +1,3 @@
+[submodule "/data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts"]
+	path = /data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts
+	url = git@github.com:niaid/dmist-nnunet.git
