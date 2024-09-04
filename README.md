@@ -64,6 +64,13 @@ To use our custom version of nnU-Net, follow these steps:
 4. **Run Custom Pipelines**:
    Use our custom scripts and configurations to train and evaluate models. Refer to our documentation for specific command-line instructions tailored to infectious disease research workflows.
 
+5. **Updating the Submodule**: 
+   To update the submodule to the latest commit from its branch, run:
+
+   ```bash
+   git submodule update --remote
+   ```
+
 ## Documentation
 
 - [Installation Instructions](documentation/installation_instructions.md)
