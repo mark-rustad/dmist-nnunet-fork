@@ -6,7 +6,13 @@
 
 - [ ] nnUNet DICOM catcher
 
-  - Use `irf_scripts/inference_ensembling_postprocessing_job_template.job` as a template job file for an inference task.
+  - Steps:
+
+    1. Send DICOM to Skyline
+       1. use `/data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250` as starting point
+    2. Convert DICOM to NIfTI
+    3. Call `irf_scripts/nnUNet_predict_ensemble_pp.py`
+       1. `./nnUNet_predict_ensemble_pp.py --input_folder /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250 --configs 2d 3d_fullres 3d_lowres 3d_cascade_fullres`
 
 - [ ] Dataset preprocessing script
 
