@@ -11,9 +11,12 @@
     1. Send DICOM to Skyline
        1. use `/data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250` as starting point
     2. Convert DICOM to NIfTI
-    3. Call `irf_scripts/nnUNet_predict_ensemble_pp.py`
-       1. `./nnUNet_predict_ensemble_pp.py --input_folder /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250 --configs 2d 3d_fullres 3d_lowres 3d_cascade_fullres`
-       2. `./nnUNet_predict_ensemble_pp.py --input_folder /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250_3d_fullres_3d_lowres --configs 3d_fullres 3d_lowres`
+    3. Call `irf_scripts/nnUNet_predict_ensemble_pp.py` within `dmist-deploy/seg_driver.sh`
+       1. `seg_driver.sh` args:
+          1. required: `in_dir`, `out_dir`, need to  be made: new `mode` option (*e.g.* `liver_nnunet`)
+       2. example calls:
+          1. `./nnUNet_predict_ensemble_pp.py --input_folder /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250 --configs 2d 3d_fullres 3d_lowres 3d_cascade_fullres`
+          2. `./nnUNet_predict_ensemble_pp.py --input_folder /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250_3d_fullres_3d_lowres_4 --configs 3d_fullres 3d_lowres`
     4. Send prediction to MIM
        1. `/data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts/AnalyzeToDicom.py --patid_study_date RA0212_20180918 --dicom_in /data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250 --nifti_in <NIFTI_PATH> --series_description nnUNetpipeline_Liver_Seg_DL --keep-dicom`
 
