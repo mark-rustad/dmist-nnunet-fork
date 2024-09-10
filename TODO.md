@@ -7,10 +7,11 @@
 - [ ] Send DICOM to Skyline
 
   - use `/data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250` as starting point
+  - will be sent to `/data/irf/ai/rustadmd/segmentation_data/liver/dcm` on Skyline
 
 - [x] Convert DICOM to NIfTI
 
-  - `/data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts/dcm2niix_nnunet_wrapper.sh /data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250 /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder_2`
+  - `/data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts/dcm2niix_nnunet_wrapper.sh /data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250 /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/tmp`
 
 - [ ] Call `irf_scripts/nnUNet_predict_ensemble_pp.py` within `dmist-deploy/seg_driver.sh`
 
