@@ -22,7 +22,7 @@
   - example call:
 
      1. `./nnUNet_predict_ensemble_pp.py --input_folder_nii /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/input_folder_2 --run_dir /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/liver/RA0212_20180918_DIWB250_3d_fullres_3d_lowres_5 --configs 3d_fullres 3d_lowres`
-
+     2. DEBUG: array predict job files do not loop through the configs properly (two 3d_fullres jobs are created)
 - [ ] Script to call after predict, ensemble, post-process
 
   - File I/O
