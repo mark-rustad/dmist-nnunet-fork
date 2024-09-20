@@ -4,7 +4,26 @@
 
 ### Dataset preprocessing script
 
-- [ ] Ensure IRF datasets are nnUNet-compatible.
+- [ ] Add command line args for `prepare_dataset.py`, `process_entry.py`, and `create_folds.py`:
+  - `input_yaml`: describes contents of dataset
+  - `dataset_id`: number id
+  - `dataset_desc`: text descriptor (`dataset_name` becomes `f"Dataset{dataset_id}_{dataset_desc}"`)
+
+- [ ] Call `create_folds.py` within `prepare_dataset.py`:
+  - create another function that makes and submits a second slurm job to create the folds
+    - first slurm job: `"process_entries"`
+    - second slrum job: `"create_folds"`
+
+- [ ] Create a `plan_and_preprocess.py` script and call it within `prepare_dataset.py`:
+  - create another function that makes and submits a third slurm job to plan and preprocess the created dataset
+    - first slurm job: `"process_entries"`
+    - second slrum job: `"create_folds"`
+    - third slrum job: `"plan_and_preprocess_dataset"`
+
+### Dataset training script
+
+- [ ] debug `train_models.py`:
+  - errors are probably associated with `"overwrite_image_reader_writer": "NibabelIO"` in the created `"f{dataset_dir}/dataset.json"` file
 
 ### Summary report implementation
 
