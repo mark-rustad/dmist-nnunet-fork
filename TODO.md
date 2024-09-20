@@ -4,21 +4,17 @@
 
 ### Dataset preprocessing script
 
-- [ ] Add command line args for `prepare_dataset.py`, `process_entry.py`, and `create_folds.py`:
+- [X] Add command line args for `prepare_dataset.py`, `process_entry.py`, and `create_folds.py`:
   - `input_yaml`: describes contents of dataset
   - `dataset_id`: number id
   - `dataset_desc`: text descriptor (`dataset_name` becomes `f"Dataset{dataset_id}_{dataset_desc}"`)
 
-- [ ] Call `create_folds.py` within `prepare_dataset.py`:
-  - create another function that makes and submits a second slurm job to create the folds
-    - first slurm job: `"process_entries"`
-    - second slrum job: `"create_folds"`
+- [X] Call `create_folds.py` within `prepare_dataset.py`:
+  - script to create to create the folds
 
-- [ ] Create a `plan_and_preprocess.py` script and call it within `prepare_dataset.py`:
-  - create another function that makes and submits a third slurm job to plan and preprocess the created dataset
-    - first slurm job: `"process_entries"`
-    - second slrum job: `"create_folds"`
-    - third slrum job: `"plan_and_preprocess_dataset"`
+- [X] Create a function `create_slurm_script_make_folds_plan_and_preprocess` in `prepare_dataset.py` script to submit a second slurm job to create the folds and perform the experiment planning and preprocessing:
+  - first slurm job: `"process_entries.py"`
+  - second slrum job: `"create_folds.py"` and `nnUNetv2_plan_and_preprocess` command
 
 ### Dataset training script
 
