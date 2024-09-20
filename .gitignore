@@ -115,5 +115,6 @@ ENV/
 
 data*/
 segmentation_data/
+.vscode/
 
 !documentation/assets/scribble_example.png
