@@ -2,10 +2,38 @@
 
 ## In progress
 
-### Dataset training script
+### Dataset preparation script
 
-- [ ] debug `train_models.py`:
-  - errors are probably associated with `"overwrite_image_reader_writer": "NibabelIO"` in the created `"f{dataset_dir}/dataset.json"` file
+- [ ] Make details within generated `./nnUNet_preprocessed/<Dataset>/dataset.json` variable, not hardcoded
+
+- [X] debug `train_models.py`:
+  - ~~errors are probably associated with `"overwrite_image_reader_writer": "NibabelIO"` in the created `"f{dataset_dir}/dataset.json"` file~~
+  - erros caused by corrupted file/lack of space in `"/data/scratch/rustadmd/ai-hpcgpu19/torchinductor_rustadmd/"`
+
+### Training variations
+
+- [ ] [Scale ResEnc nnUNet beyond the presets](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md#scaling-resenc-nnu-net-beyond-the-presets)
+  - set `gpu_memory_target_in_gb = 80`:
+
+      ```bash
+      nnUNetv2_plan_experiment -d DATASETID -pl nnUNetPlannerResEncXL -gpu_memory_target 80 -overwrite_plans_name nnUNetResEncUNetPlans_80G
+      ```
+
+- [ ] [Scale to multiple GPUs](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md#scaling-to-multiple-gpus)
+  - Run `nnUNetv2_plan_experient` normally (targeting to run on one GPU), and then manually edit the plans file to increase the batch size. You can use [configuration inheritance](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/explanation_plans_files.md). In the configurations dictionary of the genereated plans JSON file, add the following entry:
+
+      ```json
+      "3d_fullres_bsXX": {
+          "inherits_from": "3d_fullres",
+          "batch_size": XX
+      },
+      ```
+
+    Where XX is the new batch size. If 3d_fullres has a batch size of 2 for one GPU and you are planning to scale to 8 GPUs, make the new batch size 2x8=16! You can then train the new configuration using nnU-Net's multi-GPU settings:
+
+      ```bash
+      nnUNetv2_train DATASETID 3d_fullres_bsXX FOLD -p nnUNetResEncUNetPlans_80G -num_gpus 8
+      ```
 
 ### Summary report implementation
 
