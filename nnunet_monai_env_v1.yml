@@ -1,0 +1,129 @@
+name: nnunet_monai_env_v1
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+dependencies:
+  - python=3.10
+  - autopep8
+  - black
+  - dicom2nifti
+  - einops
+  - ipywidgets
+  - isort
+  - jupyterlab
+  - keras
+  - lightning
+  - matplotlib
+  - monai
+  - nbconvert
+  - nbformat
+  - nibabel
+  - notebook
+  - numpy
+  - patool
+  - pillow
+  - pingouin
+  - plotly
+  - pydicom
+  - python-dotenv
+  - python-pptx
+  - pytorch
+  - pytorch-cuda=12.4
+  - pyyaml
+  - requests
+  - scikit-image
+  - scikit-learn
+  - scikit-multilearn
+  - scipy
+  - seaborn
+  - setuptools
+  - simpleitk
+  - six
+  - statsmodels
+  - tensorboard
+  - tensorflow
+  - termcolor
+  - threadpoolctl
+  - tifffile
+  - torchvision
+  - tqdm
+# requirements from monai::requirements-dev.txt
+  # - clearml>=1.10.0rc0
+  - clearml
+  # - cucim-cu12; platform_system == "Linux" and python_version >= "3.9" and python_version <= "3.10"
+  # - filelock<3.12.0 # https://github.com/microsoft/nni/issues/5523
+  - filelock
+  - fire
+  # - flake8-bugbear<=24.2.6 # https://github.com/Project-MONAI/MONAI/issues/7690
+  - flake8-bugbear
+  - flake8-comprehensions
+  # - flake8>=3.8.1
+  - flake8
+  # - gdown>=4.7.3
+  - gdown
+  - h5py
+  - huggingface_hub
+  # - imagecodecs; platform_system == "Linux" or platform_system == "Darwin"
+  - imagecodecs
+  # - itk>=5.2
+  - itk
+  - jsonschema
+  - lmdb
+  # - lpips==0.1.4
+  - lpips
+  - mccabe
+  # - mlflow>=2.12.2
+  - mlflow
+  # - mypy>=1.5.0
+  - mypy
+  - ninja
+  # - nni==2.10.1; platform_system == "Linux" and "arm" not in platform_machine and "aarch" not in platform_machine
+  - nni
+  - nvidia-ml-py
+  - onnx_graphsurgeon
+  # - onnx>=1.13.0
+  - onnx
+  # - onnxruntime; python_version <= '3.10'
+  - onnxruntime
+  - openslide-python
+  - optuna
+  - pandas
+  - pep8-naming
+  - polygraphy
+  - pre-commit
+  - psutil
+  # - pyamg>=5.0.0
+  - pyamg
+  - pycodestyle
+  - pyflakes
+  - pynrrd
+  # - pytorch-ignite==0.4.11
+  - pytorch-ignite
+  # - pytype>=2020.6.1; platform_system != "Windows"
+  - pytype
+  - ruff
+  - tensorboardX
+  # - tifffile; platform_system == "Linux" or platform_system == "Darwin"
+  - tifffile
+  # - transformers>=4.36.0, <4.41.0; python_version <= '3.10'
+  - transformers
+  # - typeguard<3 # https://github.com/microsoft/nni/issues/5457
+  - typeguard
+  - types-PyYAML
+  - types-setuptools
+  - zarr
+# requirements from monai::requirements-min.txt
+  # - coverage>=5.5
+  - coverage
+  - parameterized
+  - packaging
+  - pip:
+      - -e .[dev]
+      - pyradiomics
+      - git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
+      - git+https://github.com/Project-MONAI/MetricsReloaded@monai-support#egg=MetricsReloaded
+      - git+https://github.com/MIC-DKFZ/acvl_utils.git
+      - git+https://github.com/MIC-DKFZ/dynamic-network-architectures.git
+      - git+https://github.com/FabianIsensee/hiddenlayer.git
+      - git+https://github.com/wasserth/TotalSegmentator.git
