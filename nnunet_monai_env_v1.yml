@@ -118,6 +118,7 @@ dependencies:
   - coverage
   - parameterized
   - packaging
+  - pip
   - pip:
       - -e .[dev]
       - pyradiomics

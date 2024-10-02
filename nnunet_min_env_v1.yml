@@ -48,6 +48,7 @@ dependencies:
   - tifffile
   - torchvision
   - tqdm
+  - pip
   - pip:
       - -e .[dev]
       - pyradiomics
