@@ -4,7 +4,7 @@ channels:
   - nvidia
   - conda-forge
 dependencies:
-  - python=3.10
+  - python[version='<3.12']
   - autopep8
   - black
   - dicom2nifti
@@ -29,7 +29,7 @@ dependencies:
   - python-dotenv
   - python-pptx
   - pytorch
-  - pytorch-cuda=12.4
+  - pytorch-cuda[version='<12.5']
   - pyyaml
   - requests
   - scikit-image
