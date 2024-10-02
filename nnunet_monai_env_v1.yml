@@ -9,6 +9,7 @@ dependencies:
   - black
   - dicom2nifti
   - einops
+  - ignite
   - ipywidgets
   - isort
   - jupyterlab
@@ -28,8 +29,8 @@ dependencies:
   - pydicom
   - python-dotenv
   - python-pptx
-  - pytorch
-  - pytorch-cuda[version='<12.5']
+  - pytorch[version='>2']
+  - pytorch-cuda=12.4
   - pyyaml
   - requests
   - scikit-image
@@ -42,13 +43,13 @@ dependencies:
   - six
   - statsmodels
   - tensorboard
-  - tensorflow
+  - tensorflow[version='>2.12']
   - termcolor
   - threadpoolctl
   - tifffile
   - torchvision
   - tqdm
-# requirements from monai::requirements-dev.txt
+  # requirements from monai::requirements-dev.txt
   # - clearml>=1.10.0rc0
   - clearml
   # - cucim-cu12; platform_system == "Linux" and python_version >= "3.9" and python_version <= "3.10"
@@ -98,27 +99,24 @@ dependencies:
   - pycodestyle
   - pyflakes
   - pynrrd
-  # - pytorch-ignite==0.4.11
-  - pytorch-ignite
   # - pytype>=2020.6.1; platform_system != "Windows"
   - pytype
   - ruff
   - tensorboardX
-  # - tifffile; platform_system == "Linux" or platform_system == "Darwin"
-  - tifffile
   # - transformers>=4.36.0, <4.41.0; python_version <= '3.10'
-  - transformers
+  - transformers # requires datasets which requires dill >=0.3.0,<0.3.9
+  - dill[version='<0.3.9']
   # - typeguard<3 # https://github.com/microsoft/nni/issues/5457
   - typeguard
   - types-PyYAML
   - types-setuptools
   - zarr
-# requirements from monai::requirements-min.txt
+  # requirements from monai::requirements-min.txt
   # - coverage>=5.5
   - coverage
   - parameterized
   - packaging
-# dependencies needed for conda-forge install in-place of pip
+  # dependencies needed for conda-forge install in-place of pip
   - colored # optional dep of polygraphy
   - pip
   - pip:
@@ -133,6 +131,6 @@ dependencies:
       # requirements from monai::requirements-dev.txt
       # - nni==2.10.1; platform_system == "Linux" and "arm" not in platform_machine and "aarch" not in platform_machine
       - nni
-      # - --extra-index-url=https://pypi.ngc.nvidia.com
+      - --extra-index-url=https://pypi.ngc.nvidia.com
       - onnx_graphsurgeon
       - polygraphy

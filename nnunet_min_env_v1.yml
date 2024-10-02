@@ -1,14 +1,15 @@
 name: nnunet_min_env_v1
 channels:
-  - pytorch
   - nvidia
+  - pytorch
   - conda-forge
 dependencies:
-  - python[version='<3.12']
+  - python=3.11
   - autopep8
   - black
   - dicom2nifti
   - einops
+  - ignite
   - ipywidgets
   - isort
   - jupyterlab
@@ -28,8 +29,8 @@ dependencies:
   - pydicom
   - python-dotenv
   - python-pptx
-  - pytorch
-  - pytorch-cuda[version='<12.5']
+  - pytorch[version='>2']
+  - pytorch-cuda=12.4
   - pyyaml
   - requests
   - scikit-image
@@ -42,12 +43,64 @@ dependencies:
   - six
   - statsmodels
   - tensorboard
-  - tensorflow
+  - tensorflow[version='>2.12']
   - termcolor
   - threadpoolctl
   - tifffile
   - torchvision
   - tqdm
+  # optional packages taken from nnunet_monai_env_v1.yml
+  - flake8-bugbear
+  - flake8-comprehensions
+  - flake8
+  - h5py
+  - huggingface_hub
+  - imagecodecs
+  - itk
+  - jsonschema
+  - ninja
+  - pandas
+  - pep8-naming
+  - pycodestyle
+  - pytype
+  - ruff
+  - tensorboardX
+  - typeguard
+  - types-PyYAML
+  - types-setuptools
+  # pandas optional deps
+  - adbc-driver-postgresql # pandas optional dep
+  - adbc-driver-sqlite # pandas optional dep
+  - blosc # pandas optional dep
+  - bottleneck # pandas optional dep
+  - fastparquet # pandas optional dep
+  - fsspec # pandas optional dep
+  - gcsfs # pandas optional dep
+  - html5lib # pandas optional dep
+  - jinja2 # pandas optional dep
+  - lxml # pandas optional dep
+  - numba # pandas optional dep
+  - numexpr # pandas optional dep
+  - odfpy # pandas optional dep
+  - openpyxl # pandas optional dep
+  - pandas-gbq # pandas optional dep
+  - psycopg2 # pandas optional dep
+  - pyarrow # pandas optional dep
+  - pymysql # pandas optional dep
+  - pyqt # pandas optional dep
+  - pyreadstat # pandas optional dep
+  - pytables # pandas optional dep
+  - python-calamine # pandas optional dep
+  - pyxlsb # pandas optional dep
+  - qtpy # pandas optional dep
+  - s3fs # pandas optional dep
+  - sqlalchemy # pandas optional dep
+  - tabulate # pandas optional dep
+  - xarray # pandas optional dep
+  - xlrd # pandas optional dep
+  - xlsxwriter # pandas optional dep
+  - zlib # pandas optional dep
+  - zstandard # pandas optional dep
   - pip
   - pip:
       - -e .[dev]
