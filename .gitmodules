@@ -1,4 +1,4 @@
 [submodule "irf_scripts"]
-	path = irf_scripts
+	path = dmist_nnunet
 	url = git@github.com:niaid/dmist-nnunet.git
 	branch = main
