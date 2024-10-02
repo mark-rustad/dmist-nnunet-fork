@@ -2,14 +2,6 @@
 
 ## In progress
 
-### Dataset preparation script
-
-- [ ] Make details within generated `./nnUNet_preprocessed/<Dataset>/dataset.json` variable, not hardcoded
-
-- [X] debug `train_models.py`:
-  - ~~errors are probably associated with `"overwrite_image_reader_writer": "NibabelIO"` in the created `"f{dataset_dir}/dataset.json"` file~~
-  - erros caused by corrupted file/lack of space in `"/data/scratch/rustadmd/ai-hpcgpu19/torchinductor_rustadmd/"`
-
 ### Training variations
 
 - [ ] [Scale ResEnc nnUNet beyond the presets](https://github.com/MIC-DKFZ/nnUNet/blob/master/documentation/resenc_presets.md#scaling-resenc-nnu-net-beyond-the-presets)
@@ -42,6 +34,12 @@
 ## Completed
 
 ### Dataset preprocessing script
+
+- [X] Make details within generated `./nnUNet_preprocessed/<Dataset>/dataset.json` variable, not hardcoded
+
+- [X] debug `train_models.py`:
+  - ~~errors are probably associated with `"overwrite_image_reader_writer": "NibabelIO"` in the created `"f{dataset_dir}/dataset.json"` file~~
+  - erros caused by corrupted file/lack of space in `"/data/scratch/rustadmd/ai-hpcgpu19/torchinductor_rustadmd/"`
 
 - [X] Add command line args for `prepare_dataset.py`, `process_entry.py`, and `create_folds.py`:
   - `input_yaml`: describes contents of dataset

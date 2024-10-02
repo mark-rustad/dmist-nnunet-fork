@@ -1,8 +1,8 @@
 name: nnunet_env_v1
 channels:
-  - conda-forge
   - pytorch
   - nvidia
+  - conda-forge
 dependencies:
   - python[version='<3.12']
   - autopep8
@@ -13,14 +13,13 @@ dependencies:
   - dominate
   - einops
   - fire
-  - fpdf
+  - fpdf2
   - gdown
   - ignite
-  - ipython
   - ipywidgets
   - isort
   - itk
-  - jupyter
+  - jupyterlab
   - keras
   - lightning
   - matplotlib
@@ -30,7 +29,6 @@ dependencies:
   - nbformat
   - nibabel
   - nilearn
-  - notebook
   - numpy
   - opencv
   - pandas
@@ -46,8 +44,8 @@ dependencies:
   - python-lmdb
   - python-pdfkit
   - python-pptx
-  - pytorch
-  - pytorch-cuda[version='<12.2']
+  - pytorch[version='>2']
+  - pytorch-cuda=12.4
   - pyyaml
   - requests
   - rich
@@ -63,15 +61,17 @@ dependencies:
   - statsmodels
   - stdlib-list
   - tensorboard
-  - tensorflow
+  - tensorflow[version='>2.12']
   - termcolor
   - torchvision
   - tqdm
   - transformers
+  - dill[version='<0.3.9']
   - pip
   - pip:
-      - -e .[dev]
+      - -e /data/irf/ai/rustadmd/dmist-nnunet-fork[dev]
       - pyradiomics
+      - git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
       - git+https://github.com/Project-MONAI/MetricsReloaded@monai-support#egg=MetricsReloaded
       - git+https://github.com/MIC-DKFZ/acvl_utils.git
       - git+https://github.com/MIC-DKFZ/dynamic-network-architectures.git

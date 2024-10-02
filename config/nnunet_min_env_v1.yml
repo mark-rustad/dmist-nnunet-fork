@@ -9,6 +9,7 @@ dependencies:
   - black
   - dicom2nifti
   - einops
+  - fpdf2
   - ignite
   - ipywidgets
   - isort
@@ -20,7 +21,6 @@ dependencies:
   - nbconvert
   - nbformat
   - nibabel
-  - notebook
   - numpy
   - patool
   - pillow
@@ -103,7 +103,7 @@ dependencies:
   - zstandard # pandas optional dep
   - pip
   - pip:
-      - -e .[dev]
+      - -e /data/irf/ai/rustadmd/dmist-nnunet-fork[dev]
       - pyradiomics
       - git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
       - git+https://github.com/Project-MONAI/MetricsReloaded@monai-support#egg=MetricsReloaded
