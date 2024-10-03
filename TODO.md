@@ -62,9 +62,9 @@
 
 - [x] Convert DICOM to NIfTI
 
-  - `/data/irf/ai/rustadmd/dmist-nnunet-fork/irf_scripts/dcm2niix_nnunet_wrapper.sh /data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250 /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/tmp`
+  - `/data/irf/ai/rustadmd/dmist-nnunet-fork/dmist_nnunet/src/utils/dcm2niix_nnunet_wrapper.sh /data/irf/ai/DICOM/liver/dcm_48E/RA0212_20180918_DIWB250 /data/irf/ai/rustadmd/dmist-nnunet-fork/segmentation_data/tmp`
 
-- [X] Call `irf_scripts/nnUNet_predict_ensemble_pp.py` within `dmist-deploy/seg_driver.sh`
+- [X] Call `/data/irf/ai/rustadmd/dmist-nnunet-fork/dmist_nnunet/src/inference/nnUNet_predict_ensemble_pp.py` within `dmist-deploy/seg_driver.sh`
 
   - `seg_driver.sh` args:
      1. required: `in_dir`, `out_dir`,
@@ -87,7 +87,7 @@
 
 - [x] See if I can use a private submodule for custom IRF-specific script files (a forked repo must be kept public).
   
-  - All files intended to be saved in `irf_scripts` will now be saved and developed within the private repo [dmist-nnunet](https://github.com/niaid/dmist-nnunet).
+  - All files intended to be saved in `dmist_nnunet` will now be saved and developed within the private repo [dmist-nnunet](https://github.com/niaid/dmist-nnunet).
 
 - [x] Clean up existing nnUNet run directories
 
