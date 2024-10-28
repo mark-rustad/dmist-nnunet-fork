@@ -103,7 +103,7 @@ def find_best_configuration(dataset_name_or_id,
             'source': merged_output_folder,
             'result': load_summary_json(join(merged_output_folder, 'summary.json'))['foreground_mean']['Dice']
         }
-
+    # TODO: Create a command line script to ensemble the all fold of multiple plan/configurations
     if allow_ensembling:
         for i in range(len(allowed_trained_models)):
             for j in range(i + 1, len(allowed_trained_models)):
@@ -331,9 +331,10 @@ def accumulate_crossval_results_entry_point():
 
 
 if __name__ == '__main__':
-    find_best_configuration(4,
-                            default_trained_models,
-                            True,
-                            8,
-                            False,
-                            (0, 1, 2, 3, 4))
+    find_best_configuration_entry_point()
+    # find_best_configuration(4,
+    #                         default_trained_models,
+    #                         True,
+    #                         8,
+    #                         False,
+    #                         (0, 1, 2, 3, 4))
