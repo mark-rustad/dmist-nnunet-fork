@@ -23,7 +23,7 @@ class NaturalImage2DIO(BaseReaderWriter):
     """
     ONLY SUPPORTS 2D IMAGES!!!
     """
-
+    io.use_plugin("imageio")
     # there are surely more we could add here. Everything that can be read by skimage.io should be supported
     supported_file_endings = [
         '.png',
@@ -36,7 +36,7 @@ class NaturalImage2DIO(BaseReaderWriter):
     def read_images(self, image_fnames: Union[List[str], Tuple[str, ...]]) -> Tuple[np.ndarray, dict]:
         images = []
         for f in image_fnames:
-            npy_img = io.imread(f)
+            npy_img = io.imread(f, plugin="imageio")
             if npy_img.ndim == 3:
                 # rgb image, last dimension should be the color channel and the size of that channel should be 3
                 # (or 4 if we have alpha)
