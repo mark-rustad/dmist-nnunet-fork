@@ -1,4 +1,4 @@
 [submodule "dmist_nnunet"]
 	path = dmist_nnunet
 	url = git@github.com:niaid/dmist-nnunet.git
-	branch = dmistnnunet_as_pkg
+	branch = main
